@@ -12,7 +12,9 @@ lines = [x for x in lines if ".png" not in x]
 long_description = "".join(lines)
 
 setup(
-    name="robosuite",
+    # Redistribution of robosuite master. Import name is unchanged; do not
+    # install alongside `robosuite`.
+    name="rlinf-robosuite",
     packages=[package for package in find_packages() if package.startswith("robosuite")],
     install_requires=[
         "numpy>=1.13.3",
@@ -39,7 +41,9 @@ setup(
     author="Yuke Zhu",
     url="https://github.com/ARISE-Initiative/robosuite",
     author_email="yukez@cs.utexas.edu",
-    version="1.5.2",
+    # master, after the 1.5.2 tag. robosuite/__init__.py keeps
+    # __version__ == "1.5.2" so naive parsers keep working.
+    version="1.5.2.post1",
     long_description=long_description,
     long_description_content_type="text/markdown",
 )
